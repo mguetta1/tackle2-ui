@@ -1,6 +1,7 @@
-import { OptionWithValue } from "@app/components/SimpleSelect";
 import React from "react";
 import { useTranslation } from "react-i18next";
+
+import { OptionWithValue } from "@app/components/SimpleSelect";
 
 export const DEFAULT_KIND = "cloudfoundry";
 
@@ -42,7 +43,7 @@ export const usePlatformKindList = (): {
       if (kind && kind in KIND_MAP) {
         return KIND_MAP[kind].urlTooltip;
       }
-      return "";
+      return "API URL to the source platform";
     },
     []
   );
