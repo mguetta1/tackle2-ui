@@ -9,6 +9,8 @@ import {
   DescriptionListGroup,
   DescriptionListTerm,
   Divider,
+  Flex,
+  FlexItem,
   Title,
   Tooltip,
 } from "@patternfly/react-core";
@@ -124,39 +126,49 @@ export const TabReportsContent: React.FC<{
 
                 <DescriptionListTerm>Download</DescriptionListTerm>
                 <DescriptionListDescription>
-                  <Tooltip
-                    content={
-                      enableDownloadSetting.data
-                        ? "Click to download TAR file with HTML static analysis report"
-                        : "Download TAR file with HTML static analysis report is disabled by administrator"
-                    }
-                    position="top"
+                  <Flex
+                    spaceItems={{ default: "spaceItemsSm" }}
+                    alignItems={{ default: "alignItemsCenter" }}
+                    flexWrap={{ default: "nowrap" }}
                   >
-                    <DownloadButton
-                      application={application}
-                      mimeType={MimeType.TAR}
-                      isDownloadEnabled={enableDownloadSetting.data}
-                    >
-                      HTML
-                    </DownloadButton>
-                  </Tooltip>
-                  {" | "}
-                  <Tooltip
-                    content={
-                      enableDownloadSetting.data
-                        ? "Click to download YAML file with static analysis report"
-                        : "Download YAML file with static analysis report is disabled by administrator"
-                    }
-                    position="top"
-                  >
-                    <DownloadButton
-                      application={application}
-                      mimeType={MimeType.YAML}
-                      isDownloadEnabled={enableDownloadSetting.data}
-                    >
-                      YAML
-                    </DownloadButton>
-                  </Tooltip>
+                    <FlexItem>
+                      <Tooltip
+                        content={
+                          enableDownloadSetting.data
+                            ? "Click to download TAR file with HTML static analysis report"
+                            : "Download TAR file with HTML static analysis report is disabled by administrator"
+                        }
+                        position="top"
+                      >
+                        <DownloadButton
+                          application={application}
+                          mimeType={MimeType.TAR}
+                          isDownloadEnabled={enableDownloadSetting.data}
+                        >
+                          HTML
+                        </DownloadButton>
+                      </Tooltip>
+                    </FlexItem>
+                    <FlexItem>|</FlexItem>
+                    <FlexItem>
+                      <Tooltip
+                        content={
+                          enableDownloadSetting.data
+                            ? "Click to download YAML file with static analysis report"
+                            : "Download YAML file with static analysis report is disabled by administrator"
+                        }
+                        position="top"
+                      >
+                        <DownloadButton
+                          application={application}
+                          mimeType={MimeType.YAML}
+                          isDownloadEnabled={enableDownloadSetting.data}
+                        >
+                          YAML
+                        </DownloadButton>
+                      </Tooltip>
+                    </FlexItem>
+                  </Flex>
                 </DescriptionListDescription>
               </DescriptionListGroup>
             </DescriptionList>
